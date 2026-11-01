@@ -2,3 +2,9 @@ h1 {
   color: red;
   font-family: sans-serif;
 }
+
+div {
+  background-color: lightblue;
+  padding: 20px;
+  border-radius: 5px;
+}
