@@ -3,6 +3,20 @@ h1 {
   font-family: sans-serif;
 }
 
+h3 {
+  color: purple;
+  font-family: Arial, sans-serif;
+}
+
+ol {
+  background-color: lightyellow;
+  padding: 20px 40px;
+}
+
+li {
+  margin-bottom: 8px;
+}
+
 div {
   background-color: lightblue;
   padding: 20px;
