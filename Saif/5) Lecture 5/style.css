@@ -10,7 +10,7 @@ body {
   background-color: #f3f6fb;
 }
 
-header {
+header > h1 {
   position: sticky;
   top: 0;
   background-color: #0b1f44;
@@ -34,6 +34,7 @@ nav a {
   color: #1d4ed8;
   font-weight: bold;
 }
+
 
 main {
   display: grid;
@@ -62,7 +63,7 @@ aside {
   padding: 20px;
   position: relative;
 }
-
+  
 .badge {
   position: absolute;
   top: 10px;

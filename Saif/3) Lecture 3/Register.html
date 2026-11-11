@@ -1,89 +1,92 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Register</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register</title>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="register.html">Register</a></li>
+        <li><a href="media.html">Media</a></li>
+      </ul>
+    </nav>
 
-  <nav>
-    <ul>
-      <li><a href="register.html">Register</a></li>
-      <li><a href="media.html">Media</a></li>
-    </ul>
-  </nav>
+    <h1>Register</h1>
 
-  <h1>Register</h1>
+    <form method="post">
+      <p>
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required />
+      </p>
 
-  <form method="post">
+      <p>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required />
+      </p>
 
-    <p>
-      <label for="name">Name</label>
-      <input type="text" id="name" name="name" required>
-    </p>
+      <p>
+        <label for="pass">Password</label>
+        <input type="password" id="pass" name="pass" minlength="8" required />
+      </p>
 
-    <p>
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" required>
-    </p>
+      <p>
+        <label for="bd">Birth Date</label>
+        <input type="date" id="bd" name="bd" />
+      </p>
 
-    <p>
-      <label for="pass">Password</label>
-      <input type="password" id="pass" name="pass" minlength="8" required>
-    </p>
+      <p>Stage:</p>
+      <input type="radio" id="s3" name="stage" value="3" />
+      <label for="s3">Third</label>
+      <input type="radio" id="s4" name="stage" value="4" />
+      <label for="s4">Fourth</label>
 
-    <p>
-      <label for="bd">Birth Date</label>
-      <input type="date" id="bd" name="bd">
-    </p>
+      <p>Interests:</p>
+      <input type="checkbox" id="html" name="html" />
+      <label for="html">HTML</label>
+      <input type="checkbox" id="css" name="css" />
+      <label for="css">CSS</label>
 
-    <p>Stage:</p>
-    <input type="radio" id="s3" name="stage" value="3">
-    <label for="s3">Third</label>
-    <input type="radio" id="s4" name="stage" value="4">
-    <label for="s4">Fourth</label>
+      <p>
+        <label for="city">City</label>
+        <select id="city" name="city">
+          <option value="">Choose</option>
+          <option value="duhok">Duhok</option>
+          <option value="erbil">Erbil</option>
+        </select>
+      </p>
 
-    <p>Interests:</p>
-    <input type="checkbox" id="html" name="html">
-    <label for="html">HTML</label>
-    <input type="checkbox" id="css" name="css">
-    <label for="css">CSS</label>
+      <p>
+        <label for="age">Age</label>
+        <input type="number" id="age" name="age" min="16" max="99" />
+      </p>
 
-    <p>
-      <label for="city">City</label>
-      <select id="city" name="city">
-        <option value="">Choose</option>
-        <option value="duhok">Duhok</option>
-        <option value="erbil">Erbil</option>
-      </select>
-    </p>
+      <p>
+        <label for="phone">Phone</label>
+        <input
+          type="tel"
+          id="phone"
+          name="phone"
+          pattern="[0-9]{11}"
+          placeholder="07501234567"
+        />
+      </p>
 
-    <p>
-      <label for="age">Age</label>
-      <input type="number" id="age" name="age" min="16" max="99">
-    </p>
+      <p>
+        <label for="msg">Message</label><br />
+        <textarea id="msg" name="msg" rows="3"></textarea>
+      </p>
 
-    <p>
-      <label for="phone">Phone</label>
-      <input type="tel" id="phone" name="phone" pattern="[0-9]{11}" placeholder="07501234567">
-    </p>
-
-    <p>
-      <label for="msg">Message</label><br>
-      <textarea id="msg" name="msg" rows="3"></textarea>
-    </p>
-
-    <button type="submit">Create account</button>
-
-  </form>
-  <form method="get">
-    <input type="text" placeholder="Your name">
-    <input type="text" placeholder="Your email">
-    <input type="text" placeholder="Your password">
-    <input type="text" placeholder="How many years?">
-    <input type="text" placeholder="Your message">
-    <input type="submit" value="OK">
-  </form>
-</body>
+      <button type="submit">Create account</button>
+    </form>
+    <form method="get">
+      <input type="text" placeholder="Your name" />
+      <input type="text" placeholder="Your email" />
+      <input type="text" placeholder="Your password" />
+      <input type="text" placeholder="How many years?" />
+      <input type="text" placeholder="Your message" />
+      <input type="submit" value="OK" />
+    </form>
+  </body>
 </html>

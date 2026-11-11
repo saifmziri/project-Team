@@ -17,32 +17,48 @@
     </style>
   </head>
   <body>
-    <!-- EXTERNAL CSS Target -->
-    <h1>This heading is styled using External CSS</h1>
+    <header>
+      <h1>My Site</h1>
+      <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+      <main>
+        <section>
+          <h2>About Me</h2>
+          <p>This is a <span class="highlight">modern</span> website layout.</p>
 
-    <!-- INTERNAL CSS Target -->
-    <h2>This heading is styled using Internal CSS</h2>
+          <div class="cards">
+            <div class="card">
+              <span class="badge">New</span>
+              <h3>Card 1</h3>
+              <p>Web Design</p>
+            </div>
+            <div class="card">
+              <h3>Card 2</h3>
+              <p>Development</p>
+            </div>
+          </div>
+                      <div class="card">
+              <h3>Card 3</h3>
+              <p>Backend Development</p>
+            </div>
+          </div>
+        </section>
 
-    <!-- 3. INLINE CSS: Applied directly to the HTML element using the "style" attribute -->
-    <p style="color: blue; font-size: 18px">
-      This paragraph is styled using Inline CSS.
-      
-    </p>
-    
-    <table border="1" style="border-collapse: collapse; width: 50%;">
-      <tr>
-        <th style="background-color: lightgray;">Name</th>
-        <th style="background-color: lightgray;">Age</th>
-      </tr>
-      <tr>
-        <td>John</td>
-        <td>30</td>
-      </tr>
-      <tr>
-        <td>Jane</td>
-        <td>25</td>
-      </tr>
+        <aside>
+          <h3>Quick Facts</h3>
+          <p>Duhok, Kurdistan</p>
+        </aside>
+      </main>
 
+        <footer>
+          <p>&copy; 2024 My Site. All rights reserved.</p>
+        </footer>
 
+        
   </body>
 </html>
