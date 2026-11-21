@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order from your table</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="customer-body">
+
+  <header class="customer-header">
+    <span class="brand-icon">🍽️</span>
+    <div>
+      <h1>Order from your table</h1>
+      <p>Choose your table, pick your food, and send it to the cashier.</p>
+    </div>
+  </header>
+
+  <main class="customer-main">
+
+    <!-- The menu and the cart -->
+    <div class="customer-layout" id="orderScreen">
+
+      <section>
+        <input type="search" id="searchInput" class="search-input" placeholder="Search food and drinks...">
+        <div class="category-bar" id="categoryBar"></div>
+        <div class="products-grid wide" id="productsGrid"></div>
+      </section>
+
+      <aside class="cart-card" id="cart">
+        <h2>Your order</h2>
+
+        <label class="field-label" for="tableSelect">Your table</label>
+        <select id="tableSelect" class="select"></select>
+
+        <div id="cartItems"></div>
+        <p class="notice-text" id="noticeText"></p>
+        <p class="error-text" id="errorText"></p>
+
+        <!-- Normal state: the Send button -->
+        <div id="sendBox">
+          <button class="btn" id="sendOrderBtn" style="width:100%">Send order to cashier</button>
+          <p class="hint-text" id="sendHint"></p>
+        </div>
+
+        <!-- Countdown state: the number goes down, and Cancel stops it -->
+        <div class="countdown-box hidden" id="countdownBox">
+          <p class="countdown-title">Sending to the cashier in</p>
+          <div class="countdown-number"><span id="countdownNumber">10</span><small>seconds</small></div>
+          <div class="countdown-track"><div class="countdown-fill" id="countdownFill"></div></div>
+          <button class="btn btn-danger" id="cancelSendBtn" style="width:100%">Cancel</button>
+          <p class="hint-text">Keep this page open until the order is sent.</p>
+        </div>
+      </aside>
+    </div>
+
+    <!-- Shown after the order is sent -->
+    <div class="confirmation hidden" id="confirmation">
+      <div class="confirmation-icon">✅</div>
+      <h2>Order sent!</h2>
+      <p id="confirmationText"></p>
+      <button class="btn" id="orderMoreBtn">Order more</button>
+    </div>
+  </main>
+
+  <!-- Mobile shortcut to the cart -->
+  <a href="#cart" class="cart-fab" id="cartFab">View your order</a>
+
+  <script src="data.js"></script>
+  <script src="customer.js"></script>
+</body>
+</html>

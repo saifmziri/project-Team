@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Restaurant Cashier</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===== SIDEBAR NAVIGATION ===== -->
+  <aside class="sidebar">
+    <div class="brand">
+      <span class="brand-icon">🍽️</span>
+      <span class="brand-name">Cashier</span>
+    </div>
+
+    <nav class="nav">
+      <button class="nav-item active" id="navTables">
+        <span class="nav-icon">▦</span>
+        <span class="nav-label">Tables</span>
+      </button>
+      <button class="nav-item" id="navAdmin">
+        <span class="nav-icon">⚙</span>
+        <span class="nav-label">Admin</span>
+      </button>
+      <!-- Opens the page customers use to choose their food -->
+      <a class="nav-item" href="customer.html" target="_blank">
+        <span class="nav-icon">📱</span>
+        <span class="nav-label">Customer page</span>
+      </a>
+    </nav>
+  </aside>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main class="main">
+
+    <section id="tablesView">
+      <header class="page-header">
+        <h1>Tables</h1>
+        <p class="page-subtitle" id="todayDate"></p>
+      </header>
+
+      <section class="summary" aria-label="Restaurant overview">
+        <div class="summary-card">
+          <span class="summary-label">Occupied</span>
+          <strong class="summary-value" id="occupiedCount">0</strong>
+        </div>
+        <div class="summary-card">
+          <span class="summary-label">Available</span>
+          <strong class="summary-value" id="availableCount">0</strong>
+        </div>
+        <div class="summary-card">
+          <span class="summary-label">Reserved</span>
+          <strong class="summary-value" id="reservedCount">0</strong>
+        </div>
+        <div class="summary-card summary-sales">
+          <span class="summary-label">Total sales</span>
+          <strong class="summary-value" id="totalSales">0 IQD</strong>
+        </div>
+      </section>
+
+      <!-- Orders sent by customers (hidden when empty) -->
+      <section class="pending-section hidden" id="pendingSection" aria-label="Customer orders">
+        <h2 class="section-title">New customer orders <span class="count-badge" id="pendingCount">0</span></h2>
+        <div class="pending-list" id="pendingList"></div>
+      </section>
+
+      <div class="legend">
+        <span class="legend-item"><i class="dot available"></i>Available</span>
+        <span class="legend-item"><i class="dot occupied"></i>Occupied</span>
+        <span class="legend-item"><i class="dot reserved"></i>Reserved</span>
+      </div>
+
+      <section class="tables-grid" id="tablesGrid" aria-label="Restaurant tables"></section>
+    </section>
+
+
+    <!-- ---------- VIEW 2: ADMIN ---------- -->
+    <section id="adminView" class="hidden">
+      <header class="page-header">
+        <h1>Admin</h1>
+        <p class="page-subtitle">Add items to the menu and see what you sold.</p>
+      </header>
+
+      <div class="tab-bar">
+        <button class="category-btn active" id="tabAdd">Add item</button>
+        <button class="category-btn" id="tabHistory">Sales history</button>
+      </div>
+
+      <!-- TAB 1: add a new item to the menu -->
+      <div id="adminAddTab" class="admin-grid">
+        <form class="admin-card" id="addItemForm" autocomplete="off">
+          <h2>Add a new item</h2>
+
+          <label class="field-label" for="newName">Name</label>
+          <input type="text" id="newName" class="search-input" maxlength="40" placeholder="Example: Grilled Chicken">
+
+          <label class="field-label" for="newPrice">Price (IQD)</label>
+          <input type="number" id="newPrice" class="search-input" min="1" placeholder="Example: 7500">
+
+          <label class="field-label" for="newCategory">Category</label>
+          <select id="newCategory" class="select"></select>
+
+          <label class="field-label" for="newVisual">Picture (one emoji, optional)</label>
+          <input type="text" id="newVisual" class="search-input" maxlength="4" placeholder="Example: 🍗">
+
+          <p class="error-text" id="formError"></p>
+          <button class="btn" type="submit" style="width:100%">Add item to menu</button>
+        </form>
+
+        <div class="admin-card">
+          <h2>Menu items <span class="count-badge neutral" id="menuCount">0</span></h2>
+          <div class="menu-list" id="menuList"></div>
+        </div>
+      </div>
+
+      <!-- TAB 2: what was sold on one day, table by table -->
+      <div id="adminHistoryTab" class="hidden">
+        <div class="history-toolbar">
+          <div>
+            <label class="field-label" for="historyDate">Day</label>
+            <input type="date" id="historyDate" class="search-input date-input">
+          </div>
+          <button class="btn btn-outline" id="todayBtn">Today</button>
+        </div>
+
+        <section class="summary three" aria-label="Sales of the day">
+          <div class="summary-card">
+            <span class="summary-label">Paid orders</span>
+            <strong class="summary-value" id="historyOrders">0</strong>
+          </div>
+          <div class="summary-card">
+            <span class="summary-label">Items sold</span>
+            <strong class="summary-value" id="historyItems">0</strong>
+          </div>
+          <div class="summary-card summary-sales">
+            <span class="summary-label">Sales of the day</span>
+            <strong class="summary-value" id="historySales">0 IQD</strong>
+          </div>
+        </section>
+        
+        <div id="historyTables"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== TABLE DETAILS PANEL (slides in from the right) ===== -->
+  <div class="backdrop" id="backdrop"></div>
+  <aside class="panel" id="tablePanel" aria-hidden="true">
+    <div class="panel-header">
+      <div>
+        <h2 id="panelTitle">Table 1</h2>
+        <span class="status-pill" id="panelStatus">Available</span>
+      </div>
+      <button class="close-btn" id="closePanelBtn" aria-label="Close panel">✕</button>
+    </div>
+    <div class="panel-body">
+      <!-- Shows the current order -->
+      <div id="orderView"></div>
+
+      <!-- Shows the products (appears when the cashier clicks "Add item") -->
+      <div id="menuView" class="hidden">
+        <input type="search" id="searchInput" class="search-input" placeholder="Search products...">
+        <div class="category-bar" id="categoryBar"></div>
+        <div class="products-grid" id="productsGrid"></div>
+      </div>
+    </div>
+    <div class="panel-actions" id="panelActions"></div>
+  </aside>
+
+  <!-- Digital receipt (appears after checkout or from the sales history) -->
+  <div class="modal hidden" id="receiptModal" role="dialog" aria-modal="true" aria-label="Receipt">
+    <div class="modal-card">
+      <div class="receipt" id="receiptContent"></div>
+      <div class="modal-actions">
+        <button class="btn btn-outline" id="printReceiptBtn">Print</button>
+        <button class="btn" id="closeReceiptBtn">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Small message that appears after adding an item -->
+  <div class="toast" id="toast"></div>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
