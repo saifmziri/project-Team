@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Pharmacy POS</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h2>✚ MediCare POS</h2>
+  <span>Pharmacist Counter System</span>
+</header>
+
+<div class="dashboard">
+  <div class="stat">
+    <p>Today's Sales</p>
+    <h2 id="sales">$0.00</h2>
+  </div>
+  <div class="stat">
+    <p>Transactions</p>
+    <h2 id="transactions">0</h2>
+  </div>
+  <div class="stat">
+    <p>Total Medicines</p>
+    <h2 id="medicineCount">0</h2>
+  </div>
+  <div class="stat">
+    <p>Low Stock</p>
+    <h2 id="lowStock">0</h2>
+  </div>
+</div>
+
+<main>
+  <section class="inventory">
+    <h2>Medicine Inventory</h2>
+
+    <input
+      type="text"
+      id="search"
+      placeholder="Search medicine..."
+    >
+
+    <div id="medicineList" class="medicine-list"></div>
+    </section>
+
+    <section class="billing">
+    <h2>Customer Bill</h2>
+
+    <input
+    type="text"
+    id="customer"
+    placeholder="Customer name"
+    >
+
+    <div id="cart">
+      <p class="empty">No medicines added.</p>
+    </div>
+
+    <div class="bill-details">
+    <p>Subtotal: <strong id="subtotal">$0.00</strong></p>
+
+    <label>Discount (%)</label>
+    <input type="number" id="discount" value="0" min="0" max="100">
+
+      <h2>Total: <span id="total">$0.00</span></h2>
+
+      <label>Payment Method</label>
+      <select id="payment">
+        <option>Cash</option>
+        <option>Card</option>
+        <option>Other</option>
+      </select>
+
+      <button onclick="checkout()">Complete Sale</button>
+      <button class="clear" onclick="clearCart()">Clear Bill</button>
+    </div>
+  </section>
+</main>
+
+<section class="stock-section">
+  <h2>Stock Alerts</h2>
+  <div id="stockAlerts"></div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>

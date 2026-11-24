@@ -1,0 +1,200 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: #f3f7f8;
+  color: #243746;
+}
+
+header {
+  background: #087e75;
+  color: white;
+  padding: 22px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dashboard {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  padding: 25px;
+}
+
+.stat {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px #0000000c;
+}
+
+.stat p {
+  color: #718096;
+  margin-bottom: 10px;
+}
+
+.stat h2 {
+  color: #087e75;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 20px;
+  padding: 0 25px 25px;
+}
+
+.inventory,
+.billing,
+.stock-section {
+  background: white;
+  border-radius: 12px;
+  padding: 22px;
+  box-shadow: 0 2px 8px #0000000c;
+}
+
+h2 {
+  margin-bottom: 18px;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #dce4e8;
+  border-radius: 7px;
+  margin: 10px 0;
+  outline: none;
+}
+
+input:focus,
+select:focus {
+  border-color: #087e75;
+}
+
+.medicine-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.medicine {
+  border: 1px solid #e1e9ec;
+  padding: 15px;
+  border-radius: 9px;
+}
+
+.medicine h3 {
+  font-size: 15px;
+  margin-bottom: 8px;
+}
+
+.medicine p {
+  margin: 5px 0;
+  font-size: 13px;
+  color: #718096;
+}
+
+button {
+  background: #087e75;
+  color: white;
+  border: none;
+  padding: 11px 15px;
+  border-radius: 7px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+button:hover {
+  background: #05645d;
+}
+
+.medicine button {
+  width: 100%;
+}
+
+#cart {
+  margin: 15px 0;
+  min-height: 100px;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid #eee;
+  padding: 12px 0;
+}
+
+.cart-item button {
+  padding: 5px 9px;
+  margin: 2px;
+}
+
+.bill-details {
+  border-top: 1px solid #eee;
+  padding-top: 15px;
+}
+
+.bill-details p {
+  margin: 12px 0;
+}
+
+.bill-details h2 {
+  color: #087e75;
+  margin-top: 15px;
+}
+
+.bill-details button {
+  width: 100%;
+}
+
+.clear {
+  background: #dc5555;
+}
+
+.stock-section {
+  margin: 0 25px 25px;
+}
+
+.alert {
+  padding: 12px;
+  margin: 8px 0;
+  border-radius: 7px;
+  background: #fff4d6;
+  color: #8b6500;
+}
+
+.empty {
+  color: #888;
+  padding: 20px 0;
+}
+
+@media(max-width: 800px) {
+  .dashboard {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  main {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media(max-width: 480px) {
+  header {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .medicine-list {
+    grid-template-columns: 1fr;
+  }
+}
